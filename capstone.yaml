@@ -1,0 +1,20 @@
+name: flyrank-capstone-image-relevance
+capstone: AI Image Understanding & Content Matching Engine
+run: docker compose up --build -d
+seed: docker compose exec app python -m scripts.seed
+test: docker compose exec app python -m pytest -q
+eval: docker compose exec app python -m scripts.eval --sweep
+base_url: http://localhost:8000
+endpoints:
+  - {method: GET,  path: /health}
+  - {method: POST, path: /jobs/ingest-images, probe: 1}
+  - {method: GET,  path: /jobs/{id}}
+  - {method: GET,  path: /images?status=flagged, probe: 1}
+  - {method: GET,  path: /posts}
+  - {method: GET,  path: "/posts/{id}/images", probe: 2, example: "post slug red-fox-behavior"}
+  - {method: GET,  path: "/posts/{post_id}/images/{image_id}/check", probe: 3, example: "fox post + a gray-wolf image"}
+  - {method: GET,  path: "/posts/{id}/images", probe: 4, example: "post slug sourdough-starter"}
+  - {method: GET,  path: /costs, probe: 6}
+  - {method: GET,  path: /suggestions/{id}}
+  - {method: POST, path: /suggestions/{id}/review}
+  - {method: GET,  path: /review}

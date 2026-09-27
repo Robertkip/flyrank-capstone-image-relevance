@@ -1,0 +1,17 @@
+{"description": "Hand-labelled eval set. expected_subject = the canonical subject of the one correct image class for the post; null = no suitable image exists in the corpus, so the correct answer is 'no confident match'. An answer counts as correct only if top-1 is accepted by the guard AND its ground-truth manifest label matches.",
+ "items": [
+  {"slug": "red-fox-behavior", "expected_subject": "fox"},
+  {"slug": "vulpes-vulpes-diet", "expected_subject": "fox"},
+  {"slug": "fox-kits-spring", "expected_subject": "fox"},
+  {"slug": "wolf-pack-hunting", "expected_subject": "wolf"},
+  {"slug": "why-wolves-howl", "expected_subject": "wolf"},
+  {"slug": "puppy-training-basics", "expected_subject": "dog"},
+  {"slug": "dog-walking-health", "expected_subject": "dog"},
+  {"slug": "bear-hibernation", "expected_subject": "bear"},
+  {"slug": "grizzly-salmon-run", "expected_subject": "bear"},
+  {"slug": "deer-in-autumn-rut", "expected_subject": "deer"},
+  {"slug": "fawn-found-alone", "expected_subject": "deer"},
+  {"slug": "sourdough-starter", "expected_subject": null},
+  {"slug": "coral-reef-bleaching", "expected_subject": null},
+  {"slug": "arctic-hare-camouflage", "expected_subject": null}
+ ]}
